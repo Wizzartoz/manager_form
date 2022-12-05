@@ -136,6 +136,7 @@
     }
     .right-section {
         order: -1;
+        position: static;
         width: 100%;
     }
     .right-wrap {
@@ -163,6 +164,9 @@
     }
     .left-section {
         width: 100%;
+    }
+    .right-section{
+        width: 110%;
     }
     .add-icon {
         left: 0;
