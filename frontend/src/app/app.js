@@ -1,11 +1,11 @@
-"use strict"
+'use strict'
 
-const myApp = angular.module("myApp", [
-    "ngRoute",
-    "formTemplateApp",
-    "notificationApp",
-    "createPersonFormApp",
-    "ui.router"
+const myApp = angular.module('myApp', [
+    'ngRoute',
+    'formTemplateApp',
+    'notificationApp',
+    'createPersonFormApp',
+    'ui.router'
 ]).config(function ($stateProvider, $urlRouterProvider) {
     $stateProvider
         .state('home', {
@@ -22,4 +22,6 @@ const myApp = angular.module("myApp", [
         });
     $urlRouterProvider.otherwise('/');
 });
+
+myApp.value('host', 'http://localhost:8080')
 

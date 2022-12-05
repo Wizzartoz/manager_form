@@ -1,11 +1,11 @@
-"use strict"
+'use strict'
 
-const personForm = angular.module("personFormTemplateApp", [])
+const personForm = angular.module('personFormTemplateApp', [])
 personForm.component('personFormTemplate', {
     templateUrl: 'person-form-template.html',
-    controller: ['$scope', '$http', '$state', function PersonFormController($scope, $http, $state) {
+    controller: ['$scope', '$http', '$state', 'host', function PersonFormController($scope, $http, $state, host) {
 
-        let host = 'http://localhost:8080';
+        $scope.genderHobbies = [];
 
         $scope.person = {
             name: '',
@@ -15,7 +15,6 @@ personForm.component('personFormTemplate', {
             dob: '',
             hobbies: []
         };
-        $scope.genderHobbies = [];
 
         $http.get(host + '/forms/' + $state.params['id']).then(function (response) {
             $scope.person = response.data;
@@ -32,23 +31,23 @@ personForm.component('personFormTemplate', {
                 $scope.person = response.data;
                 $scope.$emit('onEdit', response.data);
             }, function () {
-                alert("Incorrect values of fields")
+                alert('Incorrect values of fields');
             });
-        }
+        };
 
         $scope.deleteTag = function (name) {
             $scope.person.hobbies = $scope.person.hobbies.filter(hobby => hobby.name !== name);
-        }
+        };
 
 
         $scope.addTag = function (name) {
             $scope.genderHobbies.forEach(hobby => {
                 if (hobby.name === name) {
                     if (!$scope.person.hobbies.find(tag => tag.name === name)) {
-                        $scope.person.hobbies.push(hobby)
+                        $scope.person.hobbies.push(hobby);
                     }
                 }
             })
-        }
+        };
     }]
 });

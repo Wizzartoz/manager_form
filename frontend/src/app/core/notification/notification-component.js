@@ -3,12 +3,8 @@ const notification = angular.module('notificationApp', [])
             bindings: {msg: '@', isError: '<'},
             templateUrl: 'notification-component.html',
             controller: [() => {
-                this.$onInit = function () {
-                    console.log("Change")
-                };
-            }
-            ]
-        }
+
+        }]}
     )
 
 

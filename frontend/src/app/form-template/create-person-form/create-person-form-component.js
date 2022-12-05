@@ -1,14 +1,12 @@
-"use strict"
+'use strict'
 
-angular.module("createPersonFormApp", [])
+angular.module('createPersonFormApp', [])
     .component('createPerson', {
         templateUrl: 'create-person-form-template.html',
-        controller: ['$scope', '$http', function CreatePerson($scope, $http) {
+        controller: ['$scope', '$http', 'host', function CreatePerson($scope, $http, host) {
 
             $scope.genderHobbies = [];
             $scope.selectHobbies = [];
-
-            let host = 'http://localhost:8080';
 
             $scope.person = {
                 name: '',
@@ -22,7 +20,7 @@ angular.module("createPersonFormApp", [])
             $http.get(host + '/hobbies/' + $scope.person.gender).then(function (response) {
                 $scope.genderHobbies = response.data;
             }, function () {
-                console.log("Error")
+                console.log('Error while loading hobbies');
             });
 
             $scope.addHobby = function () {
@@ -41,15 +39,15 @@ angular.module("createPersonFormApp", [])
                     $scope.genderHobbies = response.data;
                     $scope.selectHobbies = [];
                 }, function () {
-                    console.log("Error")
+                    console.log('Error while loading hobbies');
                 });
-            }
+            };
 
             $scope.deleteTag = function (name) {
                 $scope.selectHobbies = $scope.selectHobbies.filter(tag => {
-                    return tag.name !== name
+                    return tag.name !== name;
                 });
-            }
+            };
 
             $scope.addForm = function () {
                 let obj = {
@@ -68,10 +66,9 @@ angular.module("createPersonFormApp", [])
                 $http.post(host + '/forms', obj).then(function (response) {
                     $scope.$emit('onAdd', response.data)
                     $scope.person = {};
-                    $scope.addNotification(false, 'cool')
                 }, function () {
-                    $scope.addNotification(true, 'some error')
+                    alert('Incorrect field values')
                 });
-            }
+            };
         }]
     });
