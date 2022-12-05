@@ -1,0 +1,24 @@
+<link rel="stylesheet" type="text/css" href="form-template.css">
+<div class="container">
+    <div class="wrapper">
+        <div class="left-section" ng-class="isOpenForm ? 'left-section' : 'left-section-alt'">
+            <div class="short-form" ng-repeat="person in persons">
+                <div class="short-form__full-name">
+                    <p class="short-form__text">{{person.name + " " + person.surname + " " + person.patronymic}}</p>
+                </div>
+                <div class="wrap_btn">
+                    <button ng-click="editForm(person.id)" class="short-form__btn btn-main">Edit</button>
+                    <button ng-click="deleteForm(person.id)" class="short-form__btn btn-main">Delete</button>
+                </div>
+            </div>
+        </div>
+        <div class="right-section" ng-class="isOpenForm ? 'right-section' : 'right-section-alt'">
+            <div class="right-wrap">
+                <ui-view></ui-view>
+            </div>
+        </div>
+    </div>
+    <span ng-click="createForm()" class="material-symbols-outlined add-icon">
+        add
+    </span>
+</div>

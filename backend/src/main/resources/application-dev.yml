@@ -1,0 +1,12 @@
+logging:
+  level:
+    org:
+      springframework: DEBUG
+spring:
+  data:
+    mongodb:
+      uri: {YOUR_URL}
+      database: website
+cors:
+  allowed:
+    server: {YOUR_SERVER}

@@ -1,0 +1,50 @@
+<link rel="stylesheet" type="text/css" href="../form-template.css">
+<form name="personForm" ng-submit="addForm()" novalidate>
+    <label>
+        <input placeholder="Name" type="text" class="form__column indent" ng-model="person.name"
+               ng-required="true" ng-minlength="3" ng-maxlength="50">
+    </label>
+    <label>
+        <input placeholder="Surname" type="text" class="form__column indent" ng-model="person.surname"
+               ng-required="true" ng-minlength="3" ng-maxlength="50">
+    </label>
+    <label>
+        <input placeholder="Patronymic" type="text" class="form__column indent"
+               ng-model="person.patronymic" ng-required="true" ng-minlength="3" ng-maxlength="50">
+    </label>
+    <label>
+        <input placeholder="Year of birth" type="text" class="form__column indent" ng-model="person.dob"
+               ng-required="true" min="5" max="20">
+    </label>
+    <div class="indent">
+        <label>
+            Male:
+            <input ng-change="setGender()" type="radio" name="question" value="MALE"
+                   ng-model="person.gender" ng-required="true">
+        </label>
+
+        <label>
+            Female:
+            <input ng-change="setGender()" type="radio" name="question" value="FEMALE"
+                   ng-model="person.gender" ng-required="true">
+        </label>
+    </div>
+    <div class="flex-wrap">
+        <div class="tag-wrap" ng-repeat="tag in selectHobbies">
+            <span class="tag">{{tag.name}}</span>
+            <span ng-click="deleteTag(tag.name)" class="material-symbols-outlined close-span">
+                            close
+                    </span>
+        </div>
+    </div>
+    <div class="indent bottom-indent">
+        <label>
+            Select your hobbies:
+            <select ng-change="addHobby()" ng-model="person.hobby" ng-required="true">
+                <option ng-repeat="hobby in genderHobbies" value="{{hobby.name}}">{{hobby.name}}
+                </option>
+            </select>
+        </label>
+    </div>
+    <button ng-disabled="personForm.$invalid" class="short- form__btn btn-main">Create</button>
+</form>

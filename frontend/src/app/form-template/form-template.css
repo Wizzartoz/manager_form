@@ -1,0 +1,170 @@
+.wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+.left-section {
+    width: 50%;
+}
+
+.left-section-alt {
+    width: 100%;
+}
+
+.right-section {
+    position: fixed;
+    right: 20px;
+    width: 45%;
+}
+.right-section-alt {
+    display: none;
+
+}
+
+.right-wrap {
+    border-radius: 10px;
+    border: 1px solid rgba(0,0,0,0.05);
+    box-shadow: 0 6px 6px rgba(0,0,0,.1);
+    padding-left: 30px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.short-form {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    border-radius: 10px;
+    padding: 20px;
+    border: 1px solid rgba(0,0,0,0.05);
+    box-shadow: 0 6px 6px rgba(0,0,0,.1);
+    margin-bottom: 10px;
+}
+
+.wrap_btn {
+    display: flex;
+    justify-content: space-between;
+}
+
+.short-form__btn {
+    display: block;
+    height: 40px;
+}
+
+.short-form__btn:first-child{
+    margin-right: 10px;
+}
+
+.form__column {
+    display: block;
+    width: 90%;
+    height: 50px;
+  padding-left: 10px;
+    border-radius: 10px;
+    border: 1px solid rgba(0,0,0,0.05);
+    box-shadow: 0 3px 3px rgba(0,0,0,.1);
+}
+
+.indent {
+    margin-top: 15px;
+}
+
+.bottom-indent {
+    margin-bottom: 15px;
+}
+
+.form {
+    margin: auto;
+    padding: 20px;
+    background: #0000002e;
+    width: 90%;
+    border-radius: 16px;
+    filter: drop-shadow(0px 2px 2px rgba(0, 0, 0, 0.3));
+}
+
+.tag {
+    display: block;
+}
+
+.tag-wrap {
+    margin-top: 10px;
+    padding: 10px;
+    width: 80px;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 10px;
+    margin-right: 10px;
+    background-color: rgba(181, 192, 255, 0.36);
+}
+
+.close-span {
+    display: block;
+    font-size: 15px;
+}
+
+.flex-wrap {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.add-icon {
+    position: fixed;
+    bottom: 100px;
+    right: 0px;
+    font-size: 50px;
+    color: #513dd9;
+}
+
+
+
+
+@media (max-width: 1199px) {
+    .container {
+        width: 800px;
+    }
+
+}
+
+@media (max-width: 991px) {
+    .container {
+        width: 700px;
+    }
+    .wrapper {
+        flex-direction: column;
+    }
+    .right-section {
+        order: -1;
+        width: 100%;
+    }
+    .right-wrap {
+        padding-left: 50px;
+    }
+    .left-section {
+        margin-top: 10px;
+        width: 94%;
+    }
+
+}
+
+@media (max-width: 767px) {
+    .container {
+        width: 500px;
+    }
+    .left-section {
+        width: 92%;
+    }
+}
+
+@media (max-width: 575px) {
+    .container {
+        width: 350px;
+    }
+    .left-section {
+        width: 100%;
+    }
+    .add-icon {
+        left: 0;
+    }
+}

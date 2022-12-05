@@ -1,0 +1,41 @@
+<link rel="stylesheet" type="text/css" href="person-form.css">
+<form name="personForm" ng-submit="addForm()">
+    <label>
+        <input placeholder="Name" type="text" class="form__column indent" ng-model="person.name"
+               ng-required="true" ng-minlength="3" ng-maxlength="50">
+    </label>
+    <label>
+        <input placeholder="Surname" type="text" class="form__column indent" ng-model="person.surname"
+               ng-required="true" ng-minlength="3" ng-maxlength="50">
+    </label>
+    <label>
+        <input placeholder="Patronymic" type="text" class="form__column indent" ng-model="person.patronymic"
+               ng-required="true" ng-minlength="3" ng-maxlength="50">
+    </label>
+    <label>
+        <input placeholder="Year of birth" type="text" class="form__column indent" ng-model="person.dob"
+               ng-required="true">
+    </label>
+    <div class="wrap">
+        <p class="gender">Gender: {{person.gender | lowercase}}</p>
+        <div class="indent indent-bottom">
+            <div class="flex-wrap">
+                <div class="tag-wrap" ng-repeat="tag in person.hobbies">
+                    <span class="tag">{{tag.name}}</span>
+                    <span ng-click="deleteTag(tag.name)" class="material-symbols-outlined close-span">
+                            close
+                    </span>
+                </div>
+            </div>
+            <label>
+                Select your hobbies:
+                <select ng-change="addTag(hobby)" ng-model="hobby">
+                    <option ng-repeat="hobby in genderHobbies" value="{{hobby.name}}">{{hobby.name}}</option>
+                </select>
+            </label>
+        </div>
+        <button ng-disabled="personForm.$invalid" ng-click="editForm()" class="short-form__btn btn-main">
+            Update
+        </button>
+    </div>
+</form>

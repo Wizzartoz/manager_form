@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link rel="stylesheet" href="app.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;800&family=Ubuntu:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+<body>
+
+<header ng-include="'header-component.html'"></header>
+
+<ui-view></ui-view>
+
+<script src="lib/angular/angular.js"></script>
+<script src="lib/angular/angular-route.js"></script>
+<script src="app/app.js"></script>
+<script src="app/form-template/form-template-component.js"></script>
+<script src="app/form-template/person-form-template/person-form-component.js"></script>
+<script src="app/core/notification/notification-component.js"></script>
+<script src="app/form-template/create-person-form/create-person-form-component.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.10/angular-ui-router.js"></script>
+</body>
+</html>
